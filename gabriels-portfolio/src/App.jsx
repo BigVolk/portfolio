@@ -5,10 +5,62 @@ import meHappy from './images/meHappy.jpg'
 function App() {
 
   return (
-    <>
+    <div>
       <FrontPage></FrontPage>
-      <Parallax pages = {3}>
+      <div>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+        tets<br/>
+      </div>
+      {/* <Parallax pages = {3}>
         <ParallaxLayer
+        speed={1.5}
         offset={0}
         factor={2}
         style={{
@@ -16,11 +68,11 @@ function App() {
           backgroundSize: 'cover',
           }}>
         </ParallaxLayer>
-        <ParallaxLayer offset={2}>
+        <ParallaxLayer offset={1}>
           <h1>test</h1>
         </ParallaxLayer>
-      </Parallax>
-    </>
+      </Parallax> */}
+    </div>
 
   )
 }

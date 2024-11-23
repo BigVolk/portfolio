@@ -2,6 +2,8 @@ import { Button, MenuItem, Toolbar, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import { TextSettings } from '../constanst';
+import '../assests/fonts.css';
+
 
 const NavBar = () => {
     const menuItemsInfo = [
@@ -25,7 +27,7 @@ const NavBar = () => {
 
     return (
         <>
-            <AppBar position='sticky'>
+            <AppBar position='fixed'>
                 <Container maxWidth="xl">
                     <Toolbar sx={{dispaly: 'flex', justifyContent: 'space-between'}}>
                         {menuItemsInfo.map((itemName) => (
@@ -34,7 +36,8 @@ const NavBar = () => {
                                     {
                                         direction: TextSettings.textDirection,
                                         textDecoration: "underLine",
-                                        color: "white"
+                                        color: "white",
+                                        fontFamily: 'heebo'
                                     }
                                 }>
                                 {itemName.title}
