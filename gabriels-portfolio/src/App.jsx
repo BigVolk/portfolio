@@ -8,13 +8,13 @@ function App() {
   return (
     <div>
       <FrontPage></FrontPage>
-      <div style={{width: '90vw'}}>
         <Parallax pages={3}
-          style={{ overflowX: 'hidden' }}>
+          style={{ overflowX: 'hidden' }}
+          >
           <ParallaxLayer
-            speed={1.5}
+            speed={0.5}
             offset={0}
-            factor={1}>
+            factor={1.5}>
             <Box sx={{
               backgroundPosition: 'center',
               backgroundImage: `url(${meHappy})`,
@@ -29,7 +29,6 @@ function App() {
           </ParallaxLayer>
         </Parallax>
       </div>
-    </div>
   )
 }
 
