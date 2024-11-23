@@ -1,5 +1,4 @@
-import { MenuItem, Toolbar, Typography } from '@mui/material';
-import Menu from '@mui/material/Menu';
+import { Button, MenuItem, Toolbar, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import { TextSettings } from '../constanst';
@@ -9,42 +8,39 @@ const NavBar = () => {
         {
             title: "המספר שלי",
             link: "/"
-        }, 
+        },
         {
-            title:"למה לבחור בי?",
+            title: "למה לבחור בי?",
             link: "/"
-        }, 
+        },
         {
-            title:"מיקום",
+            title: "מיקום",
             link: "/"
-        }, 
+        },
         {
-            title:"הזמנת שיעור",
+            title: "הזמנת שיעור",
             link: "/"
         }
     ]
 
     return (
         <>
-            <AppBar>
+            <AppBar position='sticky'>
                 <Container maxWidth="xl">
-                    <Toolbar>
-                        <Menu open={true} >
-                            {menuItemsInfo.map((itemName) => (
-                                <MenuItem>
-                                    <Typography
-                                        gutterBottom={true}
-                                        sx={
-                                            {
-                                                direction: TextSettings.textDirection,
-                                                textDecoration: "underLine"
-                                            }
-                                        }
-                                    >{itemName.title}</Typography>
-                                </MenuItem>
-                            )
-                            )}
-                        </Menu>
+                    <Toolbar sx={{dispaly: 'flex', justifyContent: 'space-between'}}>
+                        {menuItemsInfo.map((itemName) => (
+                            <Button
+                                sx={
+                                    {
+                                        direction: TextSettings.textDirection,
+                                        textDecoration: "underLine",
+                                        color: "white"
+                                    }
+                                }>
+                                {itemName.title}
+                            </Button>
+                        )
+                        )}
                     </Toolbar>
                 </Container>
             </AppBar>

@@ -6,7 +6,76 @@ function App() {
     <>
       <FrontPage></FrontPage>
       random shit in APP.JS
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit
+      <br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit<br/>
+      shit
     </>
+    
   )
 }
 
