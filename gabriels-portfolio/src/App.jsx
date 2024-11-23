@@ -25,7 +25,15 @@ function App() {
             }} />
           </ParallaxLayer>
           <ParallaxLayer offset={1}>
-            <h1>test</h1>
+            <Box
+            sx={{
+              boxShadow: '-2px 0px 18px 20px orange', 
+              width: '100%',
+              height: '100%',
+              background: 'orange',
+            }}>
+
+            </Box>
           </ParallaxLayer>
         </Parallax>
       </div>
