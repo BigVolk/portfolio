@@ -30,59 +30,71 @@ function App() {
         </ParallaxLayer>
         <ParallaxLayer offset={1}>
           <Box
-          sx={
-            {
-              height: `100%`,
-              width: '100%',
-              display: 'flex',
-              alignContent: 'center',
-              alignItems: 'center'
-            }
-          }>
+            sx={
+              {
+                height: `100%`,
+                width: '100%',
+                display: 'flex',
+                alignContent: 'center',
+                alignItems: 'center'
+              }
+            }>
             <Box
               sx={{
                 display: 'flex',
                 justifyContent: 'center',
                 marginTop: '30px',
-                marginBottom: '30px',
+                // marginBottom: '30px',
                 boxShadow: `-2px 0px ${borderSpread} 20px orange`,
                 height: `calc(100% - ${borderSpread} - ${borderSpread} - 30px)`,
                 width: '100%',
                 background: 'orange',
               }}>
-                <Typography
-                  sx={Object.assign({}, TextSettings, {fontSize: '100px'})}
-                >
-                  למה לבחור בי?
-                </Typography>
+              <Typography
+                sx={Object.assign({}, TextSettings, { fontSize: '100px' })}
+              >
+                למה לבחור בי?
+              </Typography>
             </Box>
           </Box>
         </ParallaxLayer>
-        <ParallaxLayer sticky={{start: 2, end: 4}}>
-          <Box sx={
-            {
-              height: '100vh',
-              background: 'purple',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: "100%",
-            }
-          }>
-              <img src={cat}/>
-          </Box>
-        </ParallaxLayer>
-        <ParallaxLayer offset={5}> 
-          <Box
+        <ParallaxLayer
+          offset={2}
+          factor={2}
+          >
+              <Box
+              sx={{
+                height: "300vh",
+                width: '100%',
+                backgroundImage: "linear-gradient(	#87CEEB, 	#59889c)"                                
+                }}>
+                
+              </Box>
+      </ParallaxLayer>
+      <ParallaxLayer sticky={{ start: 2, end: 4 }}>
+        <Box sx={
+          {
+            height: '100vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: "100%",
+          }
+        }>
+          <img src={cat} />
+        </Box>
+      </ParallaxLayer>
+      <ParallaxLayer offset={5}>
+        <Box
           sx={{
             background: 'green',
             height: '100vh',
           }}>
 
-          </Box>
-        </ParallaxLayer>
-      </Parallax>
-    </div>
+        </Box>
+      </ParallaxLayer>
+    </Parallax>
+    </div >
   )
 }
 
