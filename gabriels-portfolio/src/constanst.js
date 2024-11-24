@@ -1,3 +1,4 @@
 export const TextSettings = {
-    textDirection: "rtl"
+    direction: "rtl",
+    fontFamily: 'heebo',
 }

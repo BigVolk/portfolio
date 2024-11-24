@@ -3,43 +3,47 @@ import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
 import { TextSettings } from '../constanst';
 import '../assests/fonts.css';
-
+import './NavBar.css'
 
 const NavBar = () => {
     const menuItemsInfo = [
         {
             title: "המספר שלי",
-            link: "/"
+            action: () => {console.log("wow")}
         },
         {
             title: "למה לבחור בי?",
-            link: "/"
+            action: () => {console.log("wow")}
         },
         {
             title: "מיקום",
-            link: "/"
+            action: () => {console.log("wow")}
+
         },
         {
             title: "הזמנת שיעור",
-            link: "/"
+            action: () => {console.log("wow")}
         }
     ]
+
+
 
     return (
         <>
             <AppBar position='fixed'>
                 <Container maxWidth="xl">
-                    <Toolbar sx={{dispaly: 'flex', justifyContent: 'space-between'}}>
+                    <Toolbar sx={{ dispaly: 'flex', justifyContent: 'space-between' }}>
                         {menuItemsInfo.map((itemName) => (
                             <Button
+                            onClick={itemName.action}
+                            className='text'
                                 sx={
-                                    {
-                                        direction: TextSettings.textDirection,
+                                    Object.assign({}, TextSettings, {
                                         textDecoration: "underLine",
                                         color: "white",
-                                        fontFamily: 'heebo'
-                                    }
-                                }>
+                                    })
+                                }
+                            >
                                 {itemName.title}
                             </Button>
                         )
