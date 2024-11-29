@@ -5,6 +5,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import meHappy from './images/meHappy.jpg'
 import { TextSettings } from "./constanst"
 import cat from "./assests/parachuting-cat.gif"
+import cloud from "./assests/cloud.png"
 
 function App() {
   const borderSpread = "18px"
@@ -44,7 +45,6 @@ function App() {
                 display: 'flex',
                 justifyContent: 'center',
                 marginTop: '30px',
-                // marginBottom: '30px',
                 boxShadow: `-2px 0px ${borderSpread} 20px orange`,
                 height: `calc(100% - ${borderSpread} - ${borderSpread} - 30px)`,
                 width: '100%',
@@ -61,39 +61,52 @@ function App() {
         <ParallaxLayer
           offset={2}
           factor={2}
-          >
-              <Box
-              sx={{
-                height: "300vh",
-                width: '100%',
-                backgroundImage: "linear-gradient(	#87CEEB, 	#59889c)"                                
-                }}>
-                
-              </Box>
-      </ParallaxLayer>
-      <ParallaxLayer sticky={{ start: 2, end: 4 }}>
-        <Box sx={
-          {
-            height: '100vh',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            width: "100%",
-          }
-        }>
-          <img src={cat} />
-        </Box>
-      </ParallaxLayer>
-      <ParallaxLayer offset={5}>
-        <Box
-          sx={{
-            background: 'green',
-            height: '100vh',
-          }}>
+        >
+          <Box
+            sx={{
+              height: "300vh",
+              width: '100%',
+              backgroundImage: "linear-gradient(	#87CEEB, 	#59889c)"
+            }}>
 
-        </Box>
-      </ParallaxLayer>
-    </Parallax>
+          </Box>
+        </ParallaxLayer>
+        <ParallaxLayer offset={3}>
+          <Box
+            sx={{
+              width: "100%",
+              height: '100vh',
+            }}>
+            <img style={{position: 'fixed', left: '50px'}} src={cloud} />
+            <img style={{position: 'fixed', right: '50px', top: '200px'}} src={cloud} />
+            <img style={{position: 'fixed', top: '450px', right: '400px'}} src={cloud} />
+            <img style={{position: 'fixed', top: '750px', left: '400px'}} src={cloud} />
+            <img style={{position: 'fixed', top: '950px', right: '200px'}} src={cloud} />
+          </Box>
+        </ParallaxLayer>
+        <ParallaxLayer sticky={{ start: 2, end: 4.25 }}>
+          <Box sx={
+            {
+              height: '100vh',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: "100%",
+            }
+          }>
+            <img src={cat} />
+          </Box>
+        </ParallaxLayer>
+        <ParallaxLayer offset={5}>
+          <Box
+            sx={{
+              background: 'green',
+              height: '100vh',
+            }}>
+
+          </Box>
+        </ParallaxLayer>
+      </Parallax>
     </div >
   )
 }
