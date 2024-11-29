@@ -43,7 +43,8 @@ function App() {
             <Box
               sx={{
                 display: 'flex',
-                justifyContent: 'center',
+                alignContent: 'center',
+                flexDirection: 'column',
                 marginTop: '30px',
                 boxShadow: `-2px 0px ${borderSpread} 20px orange`,
                 height: `calc(100% - ${borderSpread} - ${borderSpread} - 30px)`,
@@ -51,10 +52,21 @@ function App() {
                 background: 'orange',
               }}>
               <Typography
-                sx={Object.assign({}, TextSettings, { fontSize: '100px' })}
+                sx={Object.assign({}, TextSettings, { fontSize: '100px', margin: '20px' })}
               >
                 למה לבחור בי?
               </Typography>
+              <Box>
+                <Typography
+                  sx={Object.assign({}, TextSettings, { fontSize: '50px', margin: '20px' })}
+                >
+                  1. אני בעל ניסיון מקצועי של מספר שנים.
+                  <br />
+                  זה לא שכנע אותכם?
+                  <br />
+                  הנה חתול צונח!
+                </Typography>
+              </Box>
             </Box>
           </Box>
         </ParallaxLayer>
@@ -77,11 +89,11 @@ function App() {
               width: "100%",
               height: '100vh',
             }}>
-            <img style={{position: 'fixed', left: '50px'}} src={cloud} />
-            <img style={{position: 'fixed', right: '50px', top: '200px'}} src={cloud} />
-            <img style={{position: 'fixed', top: '450px', right: '400px'}} src={cloud} />
-            <img style={{position: 'fixed', top: '750px', left: '400px'}} src={cloud} />
-            <img style={{position: 'fixed', top: '950px', right: '200px'}} src={cloud} />
+            <img style={{ position: 'fixed', left: '50px' }} src={cloud} />
+            <img style={{ position: 'fixed', right: '50px', top: '200px' }} src={cloud} />
+            <img style={{ position: 'fixed', top: '450px', right: '400px' }} src={cloud} />
+            <img style={{ position: 'fixed', top: '750px', left: '400px' }} src={cloud} />
+            <img style={{ position: 'fixed', top: '950px', right: '200px' }} src={cloud} />
           </Box>
         </ParallaxLayer>
         <ParallaxLayer sticky={{ start: 2, end: 4.25 }}>
