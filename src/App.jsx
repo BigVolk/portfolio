@@ -13,12 +13,11 @@ function App() {
   return (
     <div>
       <FrontPage ></FrontPage>
-      <Parallax pages={6}
+      <Parallax pages={10}
         style={{ overflowX: 'hidden' }}
       >
-        <ParallaxLayer
+        <ParallaxLayer offset={0}
           speed={0.5}
-          offset={0}
           factor={1.8}>
           <Box sx={{
             backgroundPosition: 'center',
@@ -52,7 +51,7 @@ function App() {
                 background: 'orange',
               }}>
               <Typography
-                sx={Object.assign({}, TextSettings, { fontSize: '100px', margin: '20px' })}
+                sx={Object.assign({}, TextSettings, { fontSize: '100px', margin: '20px 20px 0px' })}
               >
                 למה לבחור בי?
               </Typography>
@@ -60,18 +59,17 @@ function App() {
                 <Typography
                   sx={Object.assign({}, TextSettings, { fontSize: '50px', margin: '20px' })}
                 >
-                  1. אני בעל ניסיון מקצועי של מספר שנים.
+                  1. אני בעל ניסיון מקצועי של הרבה שנים.
                   <br />
-                  זה לא שכנע אותכם?
+                  זה לא שכנע אתכם? 😮
                   <br />
-                  הנה חתול צונח!
+                  הנה חתול צונח! ✅
                 </Typography>
               </Box>
             </Box>
           </Box>
         </ParallaxLayer>
-        <ParallaxLayer
-          offset={2}
+        <ParallaxLayer offset={2}
           factor={2}
         >
           <Box
@@ -109,14 +107,35 @@ function App() {
             <img src={cat} />
           </Box>
         </ParallaxLayer>
-        <ParallaxLayer offset={5}>
+        <ParallaxLayer offset={5} factor={3}>
           <Box
             sx={{
+              display: 'flex',
+              width: "100%",
               background: 'green',
-              height: '100vh',
+              height: '300vh',
+              justifyContent: 'center',
             }}>
-
           </Box>
+        </ParallaxLayer>
+        <ParallaxLayer offset={5} sticky={{ start: 5, end: 7 }}>
+          <Box sx={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
+              יש לי ניסיון רחב בנושאים הבאים:
+            </Typography>
+          </Box>
+        </ParallaxLayer>
+        <ParallaxLayer offset={6}>
+            <Box>
+              <Typography>Web</Typography>
+              <Typography>Networking</Typography>
+              <Typography>C/C++</Typography>
+              <Typography>Python</Typography>
+              <Typography>Java</Typography>
+              <Typography>Go</Typography>
+              <Typography>Docker</Typography>
+              <Typography>Git</Typography>
+            </Box>
         </ParallaxLayer>
       </Parallax>
     </div >
