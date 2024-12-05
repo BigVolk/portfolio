@@ -2,31 +2,49 @@ import FrontPage from "./pages/FrontPage"
 import { Box, Typography } from "@mui/material"
 import React, { useRef } from 'react'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import meHappy from './images/meHappy.jpg'
 import { TextSettings } from "./constanst"
 import cat from "./assests/parachuting-cat.gif"
 import cloud from "./assests/cloud.png"
+import meHappy from './images/meHappy.jpg'
+import justMe from './images/justMe.png'
+import withoutMe from './images/withoutMe.png'
+
+
+const generateFontSize = () => Math.random() * 50 + 20
 
 function App() {
   const borderSpread = "18px"
 
   return (
     <div>
-      <FrontPage ></FrontPage>
+      <FrontPage></FrontPage>
       <Parallax pages={10}
         style={{ overflowX: 'hidden' }}
       >
-        <ParallaxLayer offset={0}
+          <ParallaxLayer offset={0}
           speed={0.5}
           factor={1.8}>
           <Box sx={{
             backgroundPosition: 'center',
-            backgroundImage: `url(${meHappy})`,
+            backgroundImage: `url(${withoutMe})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'auto 100%',
             width: '100%',
             height: '100%',
           }} />
+        <ParallaxLayer offset={0}
+          speed={-0.1}
+          factor={1.8}>
+          <Box sx={{
+            backgroundPosition: 'center',
+            backgroundImage: `url(${justMe})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'auto 100%',
+            width: '100%',
+            height: '100%',
+          }} />
+        </ParallaxLayer>
+      
         </ParallaxLayer>
         <ParallaxLayer offset={1}>
           <Box
@@ -69,9 +87,7 @@ function App() {
             </Box>
           </Box>
         </ParallaxLayer>
-        <ParallaxLayer offset={2}
-          factor={2}
-        >
+        <ParallaxLayer offset={2} factor={2}>
           <Box
             sx={{
               height: "300vh",
@@ -118,25 +134,31 @@ function App() {
             }}>
           </Box>
         </ParallaxLayer>
+        <ParallaxLayer offset={6} speed={0.8}>
+          <Box sx={{display: 'flex', left: `20vw`, position: 'fixed', backgroundColor: 'black'}}>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${generateFontSize()}px` })}>React</Typography>
+          </Box>
+        </ParallaxLayer>
         <ParallaxLayer offset={5} sticky={{ start: 5, end: 7 }}>
-          <Box sx={{height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+          <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
               יש לי ניסיון רחב בנושאים הבאים:
             </Typography>
           </Box>
         </ParallaxLayer>
         <ParallaxLayer offset={6}>
-            <Box>
-              <Typography>Web</Typography>
-              <Typography>Networking</Typography>
-              <Typography>C/C++</Typography>
-              <Typography>Python</Typography>
-              <Typography>Java</Typography>
-              <Typography>Go</Typography>
-              <Typography>Docker</Typography>
-              <Typography>Git</Typography>
-            </Box>
+          <Box>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Web</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Networking</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>C/C++</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Python</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Java</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Go</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Docker</Typography>
+            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Git</Typography>
+          </Box>
         </ParallaxLayer>
+       
       </Parallax>
     </div >
   )
