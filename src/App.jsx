@@ -11,6 +11,11 @@ import withoutMe from './images/withoutMe.png'
 
 
 const generateFontSize = () => Math.random() * 50 + 20
+const generateSpeed = () => Math.random() + 0.5
+const generateDistanceFromLeft = () => Math.random() * 90
+const generateOffset = () => Math.random() * 3 + 5
+
+const expirenceStrings = ["Web", "React", "Networking", "C/C++", "Python", "Java", "Go", "Docker", "Git"]
 
 function App() {
   const borderSpread = "18px"
@@ -21,10 +26,10 @@ function App() {
       <Parallax pages={10}
         style={{ overflowX: 'hidden' }}
       >
-        <ParallaxLayer 
+        <ParallaxLayer
           offset={0}
-          factor={1}
-          >
+          // speed={-0.5}
+          factor={1}>
           <Box sx={{
             backgroundPosition: 'center',
             backgroundImage: `url(${withoutMe})`,
@@ -55,7 +60,6 @@ function App() {
             }} />
           </ParallaxLayer>
         </ParallaxLayer>
-
         <ParallaxLayer offset={1}>
           <Box
             sx={
@@ -144,28 +148,21 @@ function App() {
             }}>
           </Box>
         </ParallaxLayer>
-        <ParallaxLayer offset={6} speed={0.8}>
-          <Box sx={{ display: 'flex', left: `20vw`, position: 'fixed', backgroundColor: 'black' }}>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${generateFontSize()}px` })}>React</Typography>
-          </Box>
-        </ParallaxLayer>
+
+        {expirenceStrings.map( experience => {
+          return (
+            <ParallaxLayer offset={generateOffset()} speed={generateSpeed()}>
+              <Box sx={{ display: 'flex', left: `${generateDistanceFromLeft()}vw`, position: 'fixed', backgroundColor: 'black' }}>
+                <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${generateFontSize()}px` })}>{experience}</Typography>
+              </Box>
+            </ParallaxLayer>
+          )
+        })}
         <ParallaxLayer offset={5} sticky={{ start: 5, end: 7 }}>
           <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
               יש לי ניסיון רחב בנושאים הבאים:
             </Typography>
-          </Box>
-        </ParallaxLayer>
-        <ParallaxLayer offset={6}>
-          <Box>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Web</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Networking</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>C/C++</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Python</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Java</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Go</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Docker</Typography>
-            <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Git</Typography>
           </Box>
         </ParallaxLayer>
 
