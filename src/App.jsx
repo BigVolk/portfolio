@@ -21,9 +21,10 @@ function App() {
       <Parallax pages={10}
         style={{ overflowX: 'hidden' }}
       >
-          <ParallaxLayer offset={0}
-          speed={0.5}
-          factor={1.8}>
+        <ParallaxLayer 
+          offset={0}
+          factor={1}
+          >
           <Box sx={{
             backgroundPosition: 'center',
             backgroundImage: `url(${withoutMe})`,
@@ -32,20 +33,29 @@ function App() {
             width: '100%',
             height: '100%',
           }} />
-        <ParallaxLayer offset={0}
-          speed={-0.1}
-          factor={1.8}>
-          <Box sx={{
-            backgroundPosition: 'center',
-            backgroundImage: `url(${justMe})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'auto 100%',
-            width: '100%',
-            height: '100%',
-          }} />
+          <ParallaxLayer
+            speed={-0.2}
+          >
+            <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Typography sx={{ fontSize: '100px', }}>
+                Gabriel Bialik
+              </Typography>
+            </Box>
+          </ParallaxLayer>
+          <ParallaxLayer offset={0}
+            // speed = {0.1}
+            factor={1}>
+            <Box sx={{
+              backgroundPosition: 'center',
+              backgroundImage: `url(${justMe})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'auto 100%',
+              width: '100%',
+              height: '100%',
+            }} />
+          </ParallaxLayer>
         </ParallaxLayer>
-      
-        </ParallaxLayer>
+
         <ParallaxLayer offset={1}>
           <Box
             sx={
@@ -135,7 +145,7 @@ function App() {
           </Box>
         </ParallaxLayer>
         <ParallaxLayer offset={6} speed={0.8}>
-          <Box sx={{display: 'flex', left: `20vw`, position: 'fixed', backgroundColor: 'black'}}>
+          <Box sx={{ display: 'flex', left: `20vw`, position: 'fixed', backgroundColor: 'black' }}>
             <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${generateFontSize()}px` })}>React</Typography>
           </Box>
         </ParallaxLayer>
@@ -158,7 +168,7 @@ function App() {
             <Typography sx={Object.assign({}, TextSettings, { direction: "ltr" })}>Git</Typography>
           </Box>
         </ParallaxLayer>
-       
+
       </Parallax>
     </div >
   )
