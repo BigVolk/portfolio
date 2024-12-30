@@ -38,7 +38,12 @@ function App() {
   const [scrollPosition, setScrollPosition] = useState(0);
   const scrollableDivRef = useRef(null);
 
-  console.log(scrollableDivRef.current.current)
+  useEffect(() => {
+    if (scrollableDivRef != null){
+        setScrollPosition(caluclateWidthOfWidth(scrollableDivRef.current.current))
+    }
+  }, scrollableDivRef.current)
+
 
   return (
     <div>
@@ -184,7 +189,7 @@ function App() {
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
               יש לי ניסיון
             </Typography>
-            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center', letterSpacing: '50px' })}>
+            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center', letterSpacing: `${scrollPosition}px` })}>
               רחב
             </Typography>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
@@ -192,7 +197,6 @@ function App() {
             </Typography>
           </Box>
         </ParallaxLayer>
-
       </Parallax>
     </div >
   )
