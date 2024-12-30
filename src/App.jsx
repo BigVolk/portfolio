@@ -1,30 +1,51 @@
 import FrontPage from "./pages/FrontPage"
 import { Box, Typography } from "@mui/material"
-import React, { useRef } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { TextSettings } from "./constanst"
 import cat from "./assests/parachuting-cat.gif"
 import cloud from "./assests/cloud.png"
-import meHappy from './images/meHappy.jpg'
 import justMe from './images/justMe.png'
 import withoutMe from './images/withoutMe.png'
 
 
 const generateFontSize = () => Math.random() * 50 + 20
-const generateSpeed = () => Math.random() + 0.5
+const generateSpeed = () => Math.random() * 1.5 + 0.5
 const generateDistanceFromLeft = () => Math.random() * 90
-const generateOffset = () => Math.random() * 3 + 5
+const generateOffset = () => Math.random() * 2 + 5
+
+const caluclateWidthOfWidth = (scrollNumber) => {
+  const startOfExperienece = 4600
+  const endOfExperienece = 5500
+  const startAndEndDiffrence = endOfExperienece - startOfExperienece 
+
+  if (scrollNumber < startOfExperienece){
+    return -10
+  }
+  if (scrollNumber > endOfExperienece){
+    return 50
+  }
+
+  const currentDifference = scrollNumber - startOfExperienece
+  return 60 / startAndEndDiffrence * currentDifference
+}
 
 const expirenceStrings = ["Web", "React", "Networking", "C/C++", "Python", "Java", "Go", "Docker", "Git"]
 
 function App() {
   const borderSpread = "18px"
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const scrollableDivRef = useRef(null);
+
+  console.log(scrollableDivRef.current.current)
+
   return (
     <div>
       <FrontPage></FrontPage>
       <Parallax pages={10}
         style={{ overflowX: 'hidden' }}
+        ref={scrollableDivRef}
       >
         <ParallaxLayer
           offset={0}
@@ -39,9 +60,9 @@ function App() {
             height: '100%',
           }} />
           <ParallaxLayer
-            speed={-0.2}
+            speed={-0.5}
           >
-            <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', top: '10vh' }}>
               <Typography sx={{ fontSize: '100px', }}>
                 Gabriel Bialik
               </Typography>
@@ -137,7 +158,7 @@ function App() {
             <img src={cat} />
           </Box>
         </ParallaxLayer>
-        <ParallaxLayer offset={5} factor={3}>
+        <ParallaxLayer offset={5} factor={2}>
           <Box
             sx={{
               display: 'flex',
@@ -149,19 +170,25 @@ function App() {
           </Box>
         </ParallaxLayer>
 
-        {expirenceStrings.map( experience => {
+        {expirenceStrings.map(experience => {
           return (
             <ParallaxLayer offset={generateOffset()} speed={generateSpeed()}>
-              <Box sx={{ display: 'flex', left: `${generateDistanceFromLeft()}vw`, position: 'fixed', backgroundColor: 'black' }}>
+              <Box sx={{ display: 'flex', left: `${generateDistanceFromLeft()}%`, position: 'fixed', backgroundColor: 'black' }}>
                 <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${generateFontSize()}px` })}>{experience}</Typography>
               </Box>
             </ParallaxLayer>
           )
         })}
-        <ParallaxLayer offset={5} sticky={{ start: 5, end: 7 }}>
-          <Box sx={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <ParallaxLayer offset={5} sticky={{ start: 5, end: 6 }}>
+          <Box sx={{ height: '100vh', display: 'flex',flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
-              יש לי ניסיון רחב בנושאים הבאים:
+              יש לי ניסיון
+            </Typography>
+            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center', letterSpacing: '50px' })}>
+              רחב
+            </Typography>
+            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
+              בנושאים הבאים:
             </Typography>
           </Box>
         </ParallaxLayer>
