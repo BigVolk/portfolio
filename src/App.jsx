@@ -14,58 +14,34 @@ const generateSpeed = () => Math.random() * 1.5 + 0.5
 const generateDistanceFromLeft = () => Math.random() * 90
 const generateOffset = () => Math.random() * 2 + 5
 
-const caluclateWidthOfWidth = (scrollNumber) => {
-  const startOfExperienece = 4600
-  const endOfExperienece = 5500
-  const startAndEndDiffrence = endOfExperienece - startOfExperienece 
 
-  if (scrollNumber < startOfExperienece){
-    return -10
-  }
-  if (scrollNumber > endOfExperienece){
-    return 50
-  }
+const expirenceStrings = ["Web", "React", "Networking", "C/C++", "Python", "Java", "Go", "Docker", "Git", "Big Data", "OpenShift"]
 
-  const currentDifference = scrollNumber - startOfExperienece
-  return 60 / startAndEndDiffrence * currentDifference
-}
-
-const expirenceStrings = ["Web", "React", "Networking", "C/C++", "Python", "Java", "Go", "Docker", "Git"]
-
-function App() {
+const App = () => {
   const borderSpread = "18px"
-
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const scrollableDivRef = useRef(null);
-
-  useEffect(() => {
-    if (scrollableDivRef != null){
-        setScrollPosition(caluclateWidthOfWidth(scrollableDivRef.current.current))
-    }
-  }, scrollableDivRef.current)
-
 
   return (
     <div>
       <FrontPage></FrontPage>
-      <Parallax pages={10}
+      <Parallax
+        pages={10}
         style={{ overflowX: 'hidden' }}
-        ref={scrollableDivRef}
       >
         <ParallaxLayer
           offset={0}
-          // speed={-0.5}
-          factor={1}>
+          factor={1}
+          sx = {{width: '100vw'}}>
           <Box sx={{
+            top: '500px',
             backgroundPosition: 'center',
             backgroundImage: `url(${withoutMe})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'auto 100%',
-            width: '100%',
+            width: '100wv',
             height: '100%',
           }} />
           <ParallaxLayer
-            speed={-0.5}
+            speed={-1.5}
           >
             <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', top: '10vh' }}>
               <Typography sx={{ fontSize: '100px', }}>
@@ -185,11 +161,11 @@ function App() {
           )
         })}
         <ParallaxLayer offset={5} sticky={{ start: 5, end: 6 }}>
-          <Box sx={{ height: '100vh', display: 'flex',flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+          <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
               יש לי ניסיון
             </Typography>
-            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center', letterSpacing: `${scrollPosition}px` })}>
+            <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center', letterSpacing: `50px` })}>
               רחב
             </Typography>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
