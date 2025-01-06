@@ -5,13 +5,14 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { TextSettings } from "./constanst"
 import cat from "./assests/parachuting-cat.gif"
 import cloud from "./assests/cloud.png"
+import meHappy from './images/meHappy.jpg'
 import justMe from './images/justMe.png'
 import withoutMe from './images/withoutMe.png'
 
 
 const generateFontSize = () => Math.random() * 50 + 20
 const generateSpeed = () => Math.random() * 1.5 + 0.5
-const generateDistanceFromLeft = () => Math.random() * 90
+const generateDistanceFromLeft = () => Math.random() * window.innerWidth
 const generateOffset = () => Math.random() * 2 + 5
 
 
@@ -28,39 +29,17 @@ const App = () => {
         style={{ overflowX: 'hidden' }}
       >
         <ParallaxLayer
+          speed={0.5}
           offset={0}
-          factor={1}
-          sx = {{width: '100vw'}}>
+          factor={1.8}>
           <Box sx={{
-            top: '500px',
             backgroundPosition: 'center',
-            backgroundImage: `url(${withoutMe})`,
+            backgroundImage: `url(${meHappy})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'auto 100%',
-            width: '100wv',
+            width: '100%',
             height: '100%',
           }} />
-          <ParallaxLayer
-            speed={-1.5}
-          >
-            <Box sx={{ width: '100%', height: '100%', display: 'flex', justifyContent: 'center', top: '10vh' }}>
-              <Typography sx={{ fontSize: '100px', }}>
-                Gabriel Bialik
-              </Typography>
-            </Box>
-          </ParallaxLayer>
-          <ParallaxLayer offset={0}
-            // speed = {0.1}
-            factor={1}>
-            <Box sx={{
-              backgroundPosition: 'center',
-              backgroundImage: `url(${justMe})`,
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'auto 100%',
-              width: '100%',
-              height: '100%',
-            }} />
-          </ParallaxLayer>
         </ParallaxLayer>
         <ParallaxLayer offset={1}>
           <Box
@@ -151,15 +130,56 @@ const App = () => {
           </Box>
         </ParallaxLayer>
 
+
+        {/* complete bullshit goes here */}
+
+        {/* אני יכול לחשב אורך של הטקסט, אחר כך אני יכול להעמיר את זה לאחוזים ולהוריד את זה מהאחוז המרחק משמאל */}
+
         {expirenceStrings.map(experience => {
+
+          const fontSize = generateFontSize()
+          const elementWidth = experience.length * fontSize * 0.5
+          const distanceFromLeft = `${Math.abs(generateDistanceFromLeft() - elementWidth)}px`
+
+          console.log(`${experience}\ndistanceFromLeft: ${distanceFromLeft}\nfontSize: ${fontSize}\nscreen width: ${window.innerWidth}\nelementWidth: ${elementWidth}`)
+
           return (
             <ParallaxLayer offset={generateOffset()} speed={generateSpeed()}>
-              <Box sx={{ display: 'flex', left: `${generateDistanceFromLeft()}%`, position: 'fixed', backgroundColor: 'black' }}>
-                <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${generateFontSize()}px` })}>{experience}</Typography>
+              <Box sx={{margin: '100px', width: '100vw'}}>
+                <Box sx={{ display: 'flex', left: distanceFromLeft, position: 'fixed', backgroundColor: 'black' }}>
+                  <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${fontSize}px` })}>{experience}</Typography>
+                </Box>
               </Box>
             </ParallaxLayer>
           )
         })}
+
+
+        {/* end of random bullshit experiment */}
+
+
+        {/* {expirenceStrings.map(experience => {
+
+          let distanceFromLeft = generateDistanceFromLeft()
+          const fontSizeInPX = generateFontSize()
+
+          if (distanceFromLeft >= 50) {
+            distanceFromLeft = `${distanceFromLeft}% - ${fontSizeInPX * experience.length}px`
+          }
+          else {
+            distanceFromLeft = `${distanceFromLeft}%`
+          }
+
+          console.log(`${experience}\ndistanceFromLeft: ${distanceFromLeft}\nFontSize: ${fontSizeInPX}px`)
+          return (
+
+            <ParallaxLayer offset={generateOffset()} speed={generateSpeed()}>
+              <Box sx={{ display: 'flex', left: distanceFromLeft, position: 'fixed', backgroundColor: 'black' }}>
+                <Typography sx={Object.assign({}, TextSettings, { direction: "ltr", fontSize: `${fontSizeInPX}px` })}>{experience}</Typography>
+              </Box>
+            </ParallaxLayer>
+          )
+        })} */}
         <ParallaxLayer offset={5} sticky={{ start: 5, end: 6 }}>
           <Box sx={{ height: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Typography sx={Object.assign({}, TextSettings, { fontSize: '100px', textAlign: 'center' })}>
