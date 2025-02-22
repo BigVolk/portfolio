@@ -1,32 +1,30 @@
 import { Button, MenuItem, Toolbar, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Container from '@mui/material/Container';
-import { TextSettings } from '../constanst';
-import '../assests/fonts.css';
+import { TextSettings } from '../../constanst';
+import '../../assests/fonts.css';
 import './NavBar.css'
 
 const NavBar = () => {
     const menuItemsInfo = [
         {
             title: "המספר שלי",
-            action: () => {console.log("wow")}
+            action: () => { console.log("wow") }
         },
         {
             title: "למה לבחור בי?",
-            action: () => {console.log("wow")}
+            action: () => { window.open("/", "_self") }
         },
         {
             title: "מיקום",
-            action: () => {console.log("wow")}
+            action: () => { console.log("wow") }
 
         },
         {
             title: "הזמנת שיעור",
-            action: () => {console.log("wow")}
+            action: () => { window.open('/reserve-lesson', "_self") }
         }
     ]
-
-
 
     return (
         <>
@@ -35,8 +33,8 @@ const NavBar = () => {
                     <Toolbar sx={{ dispaly: 'flex', justifyContent: 'space-between' }}>
                         {menuItemsInfo.map((itemName) => (
                             <Button
-                            onClick={itemName.action}
-                            className='text'
+                                onClick={itemName.action}
+                                className='text'
                                 sx={
                                     Object.assign({}, TextSettings, {
                                         textDecoration: "underLine",
